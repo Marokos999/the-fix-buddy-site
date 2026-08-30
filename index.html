@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Fix Buddy — Chicago's trusted handyman for painting, drywall, flooring, and remodeling. Licensed, insured, free estimates.">
+<title>The Fix Buddy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap">
+<style>
+
+/* ── TOKENS ── dark default ───────────────────────────── */
+:root {
+  --color-brand:    #E8631F;
+  --color-brand-dk: #F07030;
+  --color-brand-lt: #2A1A0E;
+  --color-ink:      #F0EDE7;
+  --color-muted:    #9A9086;
+  --color-bg:       #151310;
+  --color-surface:  #1E1B17;
+  --color-border:   #302B25;
+  --color-stripe:   #1F1208;
+  --font-display:   'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+  --font-body:      'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="light"] {
+  --color-brand:    #D4500C;
+  --color-brand-dk: #A83D09;
+  --color-brand-lt: #FEF0E6;
+  --color-ink:      #1A1814;
+  --color-muted:    #6B6560;
+  --color-bg:       #F6F4F0;
+  --color-surface:  #FFFFFF;
+  --color-border:   #DDD9D2;
+  --color-stripe:   #FFF5EF;
+}
+
+/* ── RESET ────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-ink); }
+a    { color: inherit; text-decoration: none; }
+img  { display: block; max-width: 100%; }
+ul   { list-style: none; }
+
+h1, h2 { font-family: var(--font-display); letter-spacing: .03em; line-height: 1; }
+h3, h4 { font-family: var(--font-body); font-weight: 700; letter-spacing: -.01em; line-height: 1.25; }
+
+/* ── LAYOUT ───────────────────────────────────────────── */
+.wrap { max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
+
+/* ── BUTTONS ──────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .625rem 1.25rem; border-radius: .375rem;
+  font-weight: 600; font-size: .875rem; font-family: var(--font-body);
+  cursor: pointer; transition: all .2s; border: 2px solid transparent;
+  white-space: nowrap; line-height: 1.25;
+}
+.btn-primary { background: var(--color-brand); color: #fff; border-color: var(--color-brand); }
+.btn-primary:hover { background: var(--color-brand-dk); border-color: var(--color-brand-dk); }
+.btn-outline  { color: var(--color-brand); border-color: var(--color-brand); background: transparent; }
+.btn-outline:hover { background: var(--color-brand-lt); }
+.btn-lg { padding: .75rem 1.5rem; font-size: 1rem; }
+
+/* ── EYEBROW / SEC-HEAD ───────────────────────────────── */
+.eyebrow {
+  display: block; font-size: .7rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--color-brand); margin-bottom: .75rem;
+}
+.sec-head { text-align: center; margin-bottom: 3.5rem; }
+.sec-head h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem); color: var(--color-ink);
+  font-family: var(--font-display); letter-spacing: .03em;
+}
+.sec-pad { padding: 5rem 0; }
+
+/* Material Symbols */
+.ms {
+  font-family: 'Material Symbols Rounded'; font-size: 1.5rem;
+  line-height: 1; user-select: none; font-style: normal;
+  font-weight: normal; display: inline-block;
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ── PAGE OFFSET FOR FIXED NAV ────────────────────────── */
+.page-main { padding-top: 64px; }
+
+/* ── NAV ──────────────────────────────────────────────── */
+.nav-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  transition: box-shadow .3s;
+}
+.nav-bar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.1); }
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; height: 64px;
+}
+.logo-link { flex-shrink: 0; display: flex; align-items: center; }
+.logo-img  { height: 44px; width: auto; object-fit: contain; display: block; }
+.nav-links { display: none; }
+.nav-links ul { display: flex; gap: 1.5rem; list-style: none; }
+.nav-lnk { font-size: .85rem; font-weight: 500; color: var(--color-muted); transition: color .18s; }
+.nav-lnk:hover { color: var(--color-brand); }
+.nav-right { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
+.nav-tel { font-weight: 600; font-size: .875rem; color: var(--color-ink); white-space: nowrap; display: none; }
+.theme-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center;
+  transition: background .18s, transform .18s;
+}
+.theme-btn:hover { background: var(--color-brand-lt); transform: rotate(15deg); }
+.ham {
+  display: flex; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.ham span { display: block; width: 24px; height: 2px; background: var(--color-ink); border-radius: 2px; transition: transform .28s, opacity .18s; }
+.ham.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ham.open span:nth-child(2) { opacity: 0; }
+.ham.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mob-menu {
+  background: var(--color-surface); border-top: 1px solid var(--color-border);
+  max-height: 0; overflow: hidden; transition: max-height .3s ease;
+}
+.mob-menu.open { max-height: 540px; }
+.mob-lnk {
+  display: block; padding: .8rem 1rem;
+  color: var(--color-muted); font-weight: 500; font-size: .9rem;
+  border-bottom: 1px solid var(--color-border); transition: color .18s, background .18s;
+}
+.mob-lnk:hover { color: var(--color-brand); background: var(--color-stripe); }
+.mob-cta { padding: 1rem; display: flex; flex-direction: column; gap: .6rem; }
+@media (min-width: 860px) {
+  .nav-links { display: block; }
+  .nav-tel   { display: block; }
+  .ham       { display: none; }
+}
+
+/* ── HERO ─────────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(150deg, #0e0c0a 0%, #1a1208 50%, #2a1508 100%);
+  padding: 6rem 0 5rem; position: relative; overflow: hidden; text-align: center;
+}
+.hero-deco { position: absolute; border-radius: 50%; pointer-events: none; }
+.hero-deco-1 { top: -80px; right: -80px; width: 320px; height: 320px; background: rgba(212,80,12,.12); }
+.hero-deco-2 { bottom: -60px; left: -60px; width: 240px; height: 240px; background: rgba(212,80,12,.08); }
+.hero-inner  { position: relative; z-index: 1; max-width: 680px; margin-inline: auto; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .35rem .9rem; margin-bottom: 1.5rem;
+  background: rgba(212,80,12,.2); border: 1px solid rgba(212,80,12,.4);
+  border-radius: 100px; font-size: .7rem; font-weight: 700; letter-spacing: .1em; color: #D4500C;
+}
+.hero-h1 {
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  color: #fff; line-height: .95; letter-spacing: .02em; margin-bottom: 1.5rem;
+}
+.hero-h1 em { font-style: normal; color: #D4500C; }
+.hero-sub {
+  color: #b0a89e; font-size: clamp(.9rem, 2vw, 1.05rem); line-height: 1.65;
+  margin-bottom: 2.5rem; max-width: 52ch; margin-inline: auto;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+.btn-hero-outline {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .75rem 1.5rem; border-radius: .375rem; font-weight: 600; font-size: 1rem;
+  border: 2px solid rgba(255,255,255,.35); color: #fff; cursor: pointer; transition: all .2s;
+}
+.btn-hero-outline:hover { background: rgba(255,255,255,.08); }
+
+/* ── SERVICES ─────────────────────────────────────────── */
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.25rem; }
+.svc-card {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: 20px; padding: 2rem; text-align: center;
+  transition: box-shadow .22s, transform .22s;
+}
+.svc-card:hover { box-shadow: 0 10px 36px rgba(0,0,0,.1); transform: translateY(-3px); }
+.svc-card h3 { font-size: 1.6rem; margin-bottom: .55rem; color: var(--color-ink); }
+.svc-card > p { color: var(--color-muted); font-size: .875rem; line-height: 1.7; }
+.svc-icon {
+  width: 56px; height: 56px; background: var(--color-brand-lt); border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-brand); margin: 0 auto 1.25rem; flex-shrink: 0;
+}
+.svc-list { display: flex; flex-direction: column; gap: .4rem; margin-top: 1.25rem; text-align: left; }
+.svc-list li { font-size: .855rem; color: var(--color-muted); display: flex; align-items: center; gap: .55rem; }
+.svc-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--color-brand); flex-shrink: 0; }
+
+/* ── BEFORE / AFTER SLIDER ────────────────────────────── */
+.ba-sec { background: var(--color-surface); }
+.ba-slider { position: relative; }
+.ba-viewport {
+  position: relative; overflow: hidden; border-radius: 20px;
+  border: 1px solid var(--color-border); background: var(--color-bg);
+}
+.ba-slide {
+  position: absolute; top: 0; left: 0; width: 100%;
+  opacity: 0; transition: opacity .7s ease; pointer-events: none;
+}
+.ba-slide.active { position: relative; opacity: 1; pointer-events: auto; }
+.ba-header { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--color-border); }
+.ba-hdr-before, .ba-hdr-after {
+  padding: .55rem 1rem; font-size: .68rem; font-weight: 800;
+  letter-spacing: .12em; text-align: center;
+}
+.ba-hdr-before { background: rgba(0,0,0,.35); color: var(--color-muted); border-right: 2px solid var(--color-brand); }
+.ba-hdr-after  { background: rgba(232,99,31,.15); color: var(--color-brand); }
+.ba-imgs { display: grid; grid-template-columns: 1fr 1fr; }
+.ba-img-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+.ba-img-wrap:first-child { border-right: 2px solid var(--color-brand); }
+.ba-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.ba-img-wrap:hover img { transform: scale(1.03); }
+.ba-caption {
+  padding: .85rem 1.25rem; font-size: .8rem; color: var(--color-muted);
+  font-weight: 500; border-top: 1px solid var(--color-border);
+}
+.ba-btn {
+  position: absolute; top: 50%; transform: translateY(-60%);
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(0,0,0,.6); border: 1px solid var(--color-border);
+  color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background .18s; z-index: 5;
+}
+.ba-btn:hover { background: var(--color-brand); border-color: var(--color-brand); }
+.ba-prev { left: -18px; } .ba-next { right: -18px; }
+.ba-dots { display: flex; justify-content: center; gap: .5rem; margin-top: 1.25rem; }
+.ba-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--color-border); border: none; cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.ba-dot.active { background: var(--color-brand); transform: scale(1.3); }
+
+/* ── VIDEO ────────────────────────────────────────────── */
+.vid-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.vid-wrap {
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--color-border); background: #000; aspect-ratio: 16/9;
+}
+.vid-player { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── WHY US ───────────────────────────────────────────── */
+.why-sec { padding: 0 0 5rem; background: var(--color-bg); }
+.why-header {
+  background: linear-gradient(135deg, #1a1208 0%, #2a1a0a 100%);
+  padding: 2.5rem; border-radius: 20px 20px 0 0;
+  border: 1px solid var(--color-border); border-bottom: none;
+}
+.why-header h2 { font-size: clamp(1.8rem, 4vw, 3rem); color: #F0EDE7; margin: 0; }
+.why-grid {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-top: none; border-radius: 0 0 20px 20px; overflow: hidden;
+}
+.why-card {
+  display: flex; align-items: center; gap: 1.25rem;
+  padding: 1.25rem 2rem; border-bottom: 1px solid var(--color-border);
+  transition: background .18s;
+}
+.why-card:last-child { border-bottom: none; }
+.why-card:hover { background: var(--color-stripe); }
+.why-icon {
+  width: 44px; height: 44px; background: var(--color-brand-lt); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-brand); flex-shrink: 0;
+}
+.why-card h3 { font-size: 1rem; margin-bottom: .25rem; color: var(--color-ink); letter-spacing: 0; }
+.why-card p  { font-size: .8rem; color: var(--color-muted); margin: 0; line-height: 1.5; }
+
+/* ── AREAS ────────────────────────────────────────────── */
+.areas-sub { color: var(--color-muted); font-size: .9rem; max-width: 55ch; margin: .6rem auto 0; }
+.area-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; justify-content: center; }
+.area-tag {
+  padding: .45rem 1rem; border-radius: 100px; border: 1px solid var(--color-border);
+  background: var(--color-surface); font-size: .855rem; font-weight: 500;
+  color: var(--color-ink); transition: all .18s;
+}
+.area-tag.hi { background: var(--color-brand); border-color: var(--color-brand); color: #fff; }
+.area-tag:not(.hi):hover { border-color: var(--color-brand); color: var(--color-brand); background: var(--color-brand-lt); }
+
+/* ── CTA BANNER ───────────────────────────────────────── */
+.cta-banner { background: #1A1814; padding-block: 4rem; }
+.cta-inner  { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.cta-banner h2 { font-size: clamp(1.8rem, 4vw, 3rem); color: #fff; margin-bottom: .4rem; }
+.cta-banner p  { color: rgba(255,255,255,.6); font-size: .95rem; }
+.cta-btns { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+/* ── FOOTER ───────────────────────────────────────────── */
+footer {
+  padding: 3rem 0 2rem;
+  background: #1A1814;
+  color: rgba(255,255,255,.55);
+}
+.foot-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
+  padding-bottom: 2rem; margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.foot-brand h3 {
+  font-family: var(--font-display); font-size: 1.5rem; letter-spacing: .03em;
+  color: #fff; margin-bottom: .5rem;
+}
+.foot-brand h3 span { color: var(--color-brand); }
+.foot-brand p { font-size: .85rem; line-height: 1.65; margin-bottom: .5rem; }
+.foot-brand a { color: inherit; transition: color .18s; }
+.foot-brand a:hover { color: var(--color-brand); }
+.foot-col h4 {
+  font-size: .7rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase;
+  color: rgba(255,255,255,.3); margin-bottom: 1rem;
+}
+.foot-col ul { display: flex; flex-direction: column; gap: .45rem; }
+.foot-col a { font-size: .85rem; color: rgba(255,255,255,.5); transition: color .18s; }
+.foot-col a:hover { color: var(--color-brand); }
+.foot-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: .75rem; font-size: .78rem;
+}
+.foot-bottom a { text-decoration: underline; transition: color .18s; }
+.foot-bottom a:hover { color: var(--color-brand); }
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 680px) {
+  .hero { padding: 4rem 0 3.5rem; }
+  .why-header { border-radius: 16px 16px 0 0; padding: 1.75rem 1.25rem; }
+  .why-card { padding: 1rem 1.25rem; }
+  .ba-prev { left: 4px; } .ba-next { right: 4px; }
+  .ba-btn { width: 34px; height: 34px; }
+  .vid-grid { grid-template-columns: 1fr; }
+  .cta-inner { flex-direction: column; text-align: center; }
+  .foot-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────── -->
+<header class="nav-bar" id="navbar">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo-link">
+      <img src="logo.png" alt="The Fix Buddy" class="logo-img">
+    </a>
+    <nav class="nav-links" aria-label="Site navigation">
+      <ul>
+        <li><a href="#services"   class="nav-lnk">Services</a></li>
+        <li><a href="about.html"  class="nav-lnk">About</a></li>
+        <li><a href="contact.html" class="nav-lnk">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <span class="nav-tel">📞 (201) 978-0890</span>
+      <a href="contact.html" class="btn btn-primary">Free Estimate</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+      <button class="ham" id="hamBtn" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a href="#services"   class="mob-lnk" onclick="closeMob()">Services</a>
+    <a href="about.html"  class="mob-lnk" onclick="closeMob()">About</a>
+    <a href="contact.html" class="mob-lnk" onclick="closeMob()">Contact</a>
+    <div class="mob-cta">
+      <a href="tel:+12019780890" class="btn btn-primary btn-lg" style="justify-content:center">📞 Call (201) 978-0890</a>
+      <a href="contact.html" class="btn btn-outline btn-lg" style="justify-content:center" onclick="closeMob()">Get Free Estimate</a>
+    </div>
+  </div>
+</header>
+
+<main class="page-main">
+
+  <!-- ── HERO ─────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-deco hero-deco-1"></div>
+    <div class="hero-deco hero-deco-2"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-badge">⭐ CHICAGO'S #1 HANDYMAN</div>
+      <h1 class="hero-h1">WE FIX IT.<br><em>YOU LOVE IT.</em></h1>
+      <p class="hero-sub">Painting, drywall, flooring, TV mounting &amp; more.<br>Licensed · Insured · On-time.</p>
+      <div class="hero-actions">
+        <a href="tel:+12019780890" class="btn btn-primary btn-lg">📞 (201) 978-0890</a>
+        <a href="#contact" class="btn-hero-outline btn-lg">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ──────────────────────────────────────── -->
+  <section class="sec-pad" id="services" style="background:var(--color-bg)">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">What We Offer</span>
+        <h2>Professional Services,<br>Done Right</h2>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-icon"><span class="ms">format_paint</span></div>
+          <h3>Painting</h3>
+          <p>Interior and exterior painting with premium materials and meticulous prep.</p>
+          <ul class="svc-list">
+            <li>Interior Painting</li><li>Exterior Painting</li><li>Walls &amp; Ceilings</li>
+            <li>Doors &amp; Trim</li><li>Cabinets</li><li>Commercial Painting</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><span class="ms">home_repair_service</span></div>
+          <h3>Drywall</h3>
+          <p>From small hole patches to full installations — seamless, paint-ready finish.</p>
+          <ul class="svc-list">
+            <li>Drywall Repair</li><li>Hole &amp; Crack Repair</li><li>Water Damage Repair</li>
+            <li>Ceiling Repair</li><li>Taping &amp; Mudding</li><li>Texture Matching</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><span class="ms">handyman</span></div>
+          <h3>Handyman</h3>
+          <p>Everything on your to-do list, done efficiently and correctly.</p>
+          <ul class="svc-list">
+            <li>Door Repair</li><li>Trim &amp; Baseboards</li><li>Shelves &amp; Cabinets</li>
+            <li>Minor Carpentry</li><li>Fixture Installation</li><li>TV Mounting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BEFORE / AFTER SLIDER ─────────────────────────── -->
+  <section class="ba-sec sec-pad" id="gallery">
+    <div class="wrap">
+      <div class="ba-slider">
+        <div class="ba-viewport">
+
+          <div class="ba-slide active">
+            <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
+            <div class="ba-imgs">
+              <div class="ba-img-wrap"><img src="gallery/kitchen-before.jpg" alt="Before" loading="eager"></div>
+              <div class="ba-img-wrap"><img src="gallery/kitchen-after.jpg"  alt="After"  loading="eager"></div>
+            </div>
+            <p class="ba-caption">Kitchen Renovation — Cabinets, Countertops &amp; Flooring</p>
+          </div>
+
+          <div class="ba-slide">
+            <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
+            <div class="ba-imgs">
+              <div class="ba-img-wrap"><img src="gallery/kitchen-during.jpg"  alt="Before" loading="lazy"></div>
+              <div class="ba-img-wrap"><img src="gallery/kitchen-after2.jpg"  alt="After"  loading="lazy"></div>
+            </div>
+            <p class="ba-caption">Kitchen Remodel — Installation to Finished Result</p>
+          </div>
+
+          <div class="ba-slide">
+            <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
+            <div class="ba-imgs">
+              <div class="ba-img-wrap"><img src="gallery/patio-before.jpg" alt="Before" loading="lazy"></div>
+              <div class="ba-img-wrap"><img src="gallery/patio-after.jpg"  alt="After"  loading="lazy"></div>
+            </div>
+            <p class="ba-caption">Backyard Patio — Paver Installation &amp; Fire Pit Area</p>
+          </div>
+
+          <div class="ba-slide">
+            <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
+            <div class="ba-imgs">
+              <div class="ba-img-wrap"><img src="gallery/drainage-during.jpg"      alt="Before" loading="lazy"></div>
+              <div class="ba-img-wrap"><img src="gallery/patio-expanded-after.jpg" alt="After"  loading="lazy"></div>
+            </div>
+            <p class="ba-caption">Patio Expansion — Drainage System &amp; Extended Pavers</p>
+          </div>
+
+          <div class="ba-slide">
+            <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
+            <div class="ba-imgs">
+              <div class="ba-img-wrap"><img src="gallery/patio2-before.jpg" alt="Before" loading="lazy"></div>
+              <div class="ba-img-wrap"><img src="gallery/patio2-after.jpg"  alt="After"  loading="lazy"></div>
+            </div>
+            <p class="ba-caption">Backyard Transformation — Original Patio to Full Extension</p>
+          </div>
+
+          <div class="ba-slide">
+            <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
+            <div class="ba-imgs">
+              <div class="ba-img-wrap"><img src="gallery/room-framing-before.jpg" alt="Before" loading="lazy"></div>
+              <div class="ba-img-wrap"><img src="gallery/room-after.jpg"           alt="After"  loading="lazy"></div>
+            </div>
+            <p class="ba-caption">Upstairs Room Addition — Steel Framing to Finished Space</p>
+          </div>
+
+          <div class="ba-slide">
+            <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
+            <div class="ba-imgs">
+              <div class="ba-img-wrap"><img src="gallery/drywall-before.jpg" alt="Before" loading="lazy"></div>
+              <div class="ba-img-wrap"><img src="gallery/hallway-after.jpg"  alt="After"  loading="lazy"></div>
+            </div>
+            <p class="ba-caption">Drywall &amp; Finishing — Raw Construction to Polished Walls</p>
+          </div>
+
+        </div><!-- /viewport -->
+
+        <button class="ba-btn ba-prev" id="baPrev" aria-label="Previous"><span class="ms">chevron_left</span></button>
+        <button class="ba-btn ba-next" id="baNext" aria-label="Next"><span class="ms">chevron_right</span></button>
+        <div class="ba-dots" id="baDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VIDEO ─────────────────────────────────────────── -->
+  <section class="sec-pad" style="background:var(--color-bg)">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">In Action</span>
+        <h2>Watch Us Work</h2>
+      </div>
+      <div class="vid-grid">
+        <div class="vid-wrap">
+          <video controls muted playsinline preload="metadata" class="vid-player">
+            <source src="gallery/project-video1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="vid-wrap">
+          <video controls muted playsinline preload="metadata" class="vid-player">
+            <source src="gallery/project-video2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY US ─────────────────────────────────────────── -->
+  <section class="why-sec">
+    <div class="wrap">
+      <div class="why-header">
+        <h2>WHY CHOOSE US?</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon"><span class="ms">verified_user</span></div>
+          <div><h3>Fully Insured</h3><p>Licensed and insured for your peace of mind. Every job is backed by professional coverage.</p></div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><span class="ms">request_quote</span></div>
+          <div><h3>Free Estimates</h3><p>No commitment required. A clear, detailed quote before any work begins.</p></div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><span class="ms">bolt</span></div>
+          <div><h3>Fast Response</h3><p>We respond quickly and show up on time. Your project doesn't sit on a waiting list.</p></div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><span class="ms">workspace_premium</span></div>
+          <div><h3>Quality Work</h3><p>We don't call a job done until you're satisfied. Attention to detail on every project.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AREAS ──────────────────────────────────────────── -->
+  <section class="sec-pad" style="background:var(--color-bg)">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Where We Work</span>
+        <h2>Serving Chicago &amp; Surrounding Areas</h2>
+        <p class="areas-sub">We cover the greater Chicago area and many nearby suburbs. Not sure if we service your town? Call us — we probably do.</p>
+      </div>
+      <div class="area-tags">
+        <span class="area-tag hi">Chicago</span>
+        <span class="area-tag">Naperville</span><span class="area-tag">Schaumburg</span>
+        <span class="area-tag">Aurora</span><span class="area-tag">Elgin</span>
+        <span class="area-tag">Joliet</span><span class="area-tag">Evanston</span>
+        <span class="area-tag">Oak Park</span><span class="area-tag">Berwyn</span>
+        <span class="area-tag">Arlington Heights</span><span class="area-tag">Des Plaines</span>
+        <span class="area-tag">Orland Park</span><span class="area-tag">Downers Grove</span>
+        <span class="area-tag hi">&amp; More</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ────────────────────────────────────── -->
+  <section class="cta-banner" id="contact">
+    <div class="wrap cta-inner">
+      <div>
+        <h2>Ready to get started?</h2>
+        <p>Contact us today for a free, no-obligation estimate.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="tel:+12019780890" class="btn btn-primary btn-lg">📞 (201) 978-0890</a>
+        <a href="mailto:info@the-fix-buddy.com" class="btn btn-lg" style="border:2px solid rgba(255,255,255,.4);color:#fff">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <h3>THE FIX <span>BUDDY</span></h3>
+        <p>Professional painting, drywall, and handyman services in Chicago and surrounding suburbs.</p>
+        <p>📞 <a href="tel:+12019780890">(201) 978-0890</a></p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Interior Painting</a></li>
+          <li><a href="#services">Exterior Painting</a></li>
+          <li><a href="#services">Drywall Repair</a></li>
+          <li><a href="#services">Handyman Services</a></li>
+          <li><a href="#services">Flooring</a></li>
+          <li><a href="#services">TV Mounting</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Free Estimate</a></li>
+          <li><a href="tel:+12019780890">Call Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 The Fix Buddy. All rights reserved.</span>
+      <span><a href="mailto:info@the-fix-buddy.com">info@the-fix-buddy.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── DARK MODE ────────────────────────────────────────────
+const themeBtn = document.getElementById('themeBtn');
+let dark = true;
+function applyTheme() {
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  themeBtn.textContent = dark ? '☀️' : '🌙';
+}
+themeBtn.addEventListener('click', () => { dark = !dark; applyTheme(); });
+applyTheme();
+
+// ── NAV SCROLL ───────────────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// ── MOBILE MENU ──────────────────────────────────────────
+const hamBtn  = document.getElementById('hamBtn');
+const mobMenu = document.getElementById('mobMenu');
+hamBtn.addEventListener('click', () => {
+  hamBtn.classList.toggle('open');
+  mobMenu.classList.toggle('open');
+});
+function closeMob() { hamBtn.classList.remove('open'); mobMenu.classList.remove('open'); }
+document.querySelectorAll('.mob-lnk').forEach(a => a.addEventListener('click', closeMob));
+
+// ── BEFORE / AFTER SLIDER ────────────────────────────────
+const slides = document.querySelectorAll('.ba-slide');
+const dotsEl = document.getElementById('baDots');
+const total  = slides.length;
+let current = 0, timer;
+
+slides.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'ba-dot' + (i === 0 ? ' active' : '');
+  d.setAttribute('aria-label', `Slide ${i + 1}`);
+  d.addEventListener('click', () => goTo(i));
+  dotsEl.appendChild(d);
+});
+const dots = dotsEl.querySelectorAll('.ba-dot');
+
+function goTo(n) {
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = (n + total) % total;
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+  resetTimer();
+}
+
+function resetTimer() {
+  clearInterval(timer);
+  timer = setInterval(() => goTo(current + 1), 8000);
+}
+
+document.getElementById('baNext').addEventListener('click', () => goTo(current + 1));
+document.getElementById('baPrev').addEventListener('click', () => goTo(current - 1));
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') goTo(current + 1);
+  if (e.key === 'ArrowLeft')  goTo(current - 1);
+});
+document.querySelector('.ba-viewport').addEventListener('mouseenter', () => clearInterval(timer));
+document.querySelector('.ba-viewport').addEventListener('mouseleave', resetTimer);
+resetTimer();
+</script>
+</body>
+</html>

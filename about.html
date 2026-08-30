@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About The Fix Buddy — locally-owned painting and handyman service in Chicago.">
+<title>The Fix Buddy — About Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<style>
+:root {
+  --color-brand:    #E8631F; --color-brand-dk: #F07030; --color-brand-lt: #2A1A0E;
+  --color-ink:      #F0EDE7; --color-muted:    #9A9086;
+  --color-bg:       #151310; --color-surface:  #1E1B17;
+  --color-border:   #302B25; --color-stripe:   #1F1208;
+  --font-display:   'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+  --font-body:      'DM Sans', system-ui, -apple-system, sans-serif;
+}
+[data-theme="light"] {
+  --color-brand:    #D4500C; --color-brand-dk: #A83D09; --color-brand-lt: #FEF0E6;
+  --color-ink:      #1A1814; --color-muted:    #6B6560;
+  --color-bg:       #F6F4F0; --color-surface:  #FFFFFF;
+  --color-border:   #DDD9D2; --color-stripe:   #FFF5EF;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-ink); }
+a { color: inherit; text-decoration: none; }
+h1, h2 { font-family: var(--font-display); letter-spacing: .03em; line-height: 1; }
+.wrap { max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .625rem 1.25rem; border-radius: .375rem; font-weight: 600; font-size: .875rem; font-family: var(--font-body); cursor: pointer; transition: all .2s; border: 2px solid transparent; white-space: nowrap; }
+.btn-primary { background: var(--color-brand); color: #fff; border-color: var(--color-brand); }
+.btn-primary:hover { background: var(--color-brand-dk); }
+.btn-lg { padding: .75rem 1.5rem; font-size: 1rem; }
+.eyebrow { display: block; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--color-brand); margin-bottom: .75rem; }
+
+/* NAV */
+.nav-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--color-surface); border-bottom: 1px solid var(--color-border); transition: box-shadow .3s; }
+.nav-bar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.1); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 64px; }
+.logo-link { flex-shrink: 0; display: flex; align-items: center; }
+.logo-img  { height: 44px; object-fit: contain; display: block; }
+.nav-links { display: none; }
+.nav-links ul { display: flex; gap: 1.5rem; list-style: none; }
+.nav-lnk { font-size: .85rem; font-weight: 500; color: var(--color-muted); transition: color .18s; }
+.nav-lnk:hover, .nav-active { color: var(--color-brand); }
+.nav-right { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
+.nav-tel { font-weight: 600; font-size: .875rem; color: var(--color-ink); white-space: nowrap; display: none; }
+.theme-btn { width: 36px; height: 36px; border-radius: 50%; background: var(--color-surface); border: 1px solid var(--color-border); cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background .18s, transform .18s; }
+.theme-btn:hover { background: var(--color-brand-lt); transform: rotate(15deg); }
+.ham { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.ham span { display: block; width: 24px; height: 2px; background: var(--color-ink); border-radius: 2px; transition: transform .28s, opacity .18s; }
+.ham.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ham.open span:nth-child(2) { opacity: 0; }
+.ham.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mob-menu { background: var(--color-surface); border-top: 1px solid var(--color-border); max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.mob-menu.open { max-height: 540px; }
+.mob-lnk { display: block; padding: .8rem 1rem; color: var(--color-muted); font-weight: 500; font-size: .9rem; border-bottom: 1px solid var(--color-border); transition: color .18s, background .18s; }
+.mob-lnk:hover { color: var(--color-brand); background: var(--color-stripe); }
+.mob-cta { padding: 1rem; display: flex; flex-direction: column; gap: .6rem; }
+@media (min-width: 860px) { .nav-links { display: block; } .nav-tel { display: block; } .ham { display: none; } }
+
+/* PAGE HERO */
+.page-main { padding-top: 64px; }
+.page-hero { background: linear-gradient(150deg, #0e0c0a 0%, #1a1208 50%, #2a1508 100%); padding: 4.5rem 0 3.5rem; text-align: center; }
+.page-hero .eyebrow { color: #D4500C; }
+.page-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: .75rem; color: #fff; }
+.page-hero > .wrap > p { color: #b0a89e; font-size: 1rem; max-width: 55ch; margin-inline: auto; }
+
+/* ABOUT */
+.about-sec { background: var(--color-bg); padding: 5rem 0; }
+.about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; }
+.about-img {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: 12px; aspect-ratio: 4/5;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: .4rem; color: var(--color-muted); font-size: .8rem;
+}
+.about-img svg { opacity: .2; color: var(--color-muted); }
+.about-copy p { color: var(--color-muted); font-size: .9rem; line-height: 1.75; margin-bottom: .9rem; }
+.values { margin-top: 1.5rem; display: flex; flex-direction: column; gap: .7rem; }
+.val { display: flex; align-items: flex-start; gap: .7rem; }
+.val-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-brand); flex-shrink: 0; margin-top: .45rem; }
+.val p { margin: 0; font-size: .87rem; color: var(--color-muted); }
+.val strong { color: var(--color-ink); }
+
+/* CTA BANNER */
+.cta-banner { background: #1A1814; padding-block: 4rem; }
+.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.cta-banner h2 { font-size: clamp(1.8rem, 4vw, 3rem); color: #fff; margin-bottom: .4rem; font-family: var(--font-display); }
+.cta-banner p  { color: rgba(255,255,255,.6); font-size: .95rem; }
+.cta-btns { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+footer { padding: 2rem 0; background: #1A1814; color: rgba(255,255,255,.55); border-top: 1px solid rgba(255,255,255,.08); text-align: center; }
+footer p { font-size: .8rem; line-height: 1.8; }
+footer a { color: var(--color-brand); }
+
+@media (max-width: 680px) { .about-grid { grid-template-columns: 1fr; } .about-img { display: none; } .cta-inner { flex-direction: column; text-align: center; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="nav-bar" id="navbar">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo-link"><img src="logo.png" alt="The Fix Buddy" class="logo-img"></a>
+    <nav class="nav-links">
+      <ul>
+        <li><a href="index.html#services" class="nav-lnk">Services</a></li>
+        <li><a href="about.html"   class="nav-lnk nav-active">About</a></li>
+        <li><a href="contact.html" class="nav-lnk">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <span class="nav-tel">📞 (201) 978-0890</span>
+      <a href="contact.html" class="btn btn-primary">Free Estimate</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+      <button class="ham" id="hamBtn" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a href="index.html#services" class="mob-lnk" onclick="closeMob()">Services</a>
+    <a href="about.html"   class="mob-lnk" onclick="closeMob()">About</a>
+    <a href="contact.html" class="mob-lnk" onclick="closeMob()">Contact</a>
+    <div class="mob-cta">
+      <a href="tel:+12019780890" class="btn btn-primary btn-lg" style="justify-content:center">📞 Call (201) 978-0890</a>
+    </div>
+  </div>
+</header>
+
+<main class="page-main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">About Us</span>
+      <h1>Your Neighbor.<br>Your Handyman.</h1>
+      <p>Locally-owned painting and handyman service based in the greater Chicago area.</p>
+    </div>
+  </section>
+
+  <section class="about-sec">
+    <div class="wrap about-grid">
+
+      <div class="about-img">
+        <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+        </svg>
+        <span>Team photo coming soon</span>
+      </div>
+
+      <div class="about-copy">
+        <p>The Fix Buddy is a locally-owned painting and handyman service based in the greater Chicago area. We believe every home deserves quality work done with care — whether it's a fresh coat of paint, a drywall repair, or a full room remodel.</p>
+        <p>We're not a big faceless company. When you call us, you talk to the person doing the work. That means accountability, clear communication, and craftsmanship you can count on.</p>
+        <div class="values">
+          <div class="val"><div class="val-dot"></div><p><strong>Experience</strong> — hands-on work across Chicago homes and businesses.</p></div>
+          <div class="val"><div class="val-dot"></div><p><strong>Professionalism</strong> — on time, clean workspace, clear communication.</p></div>
+          <div class="val"><div class="val-dot"></div><p><strong>Quality</strong> — premium materials, no shortcuts.</p></div>
+          <div class="val"><div class="val-dot"></div><p><strong>Reliability</strong> — we show up and we follow through.</p></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="wrap cta-inner">
+      <div>
+        <h2>Ready to work together?</h2>
+        <p>Get a free estimate — no commitment required.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn btn-primary btn-lg">Get Free Estimate</a>
+        <a href="tel:+12019780890" class="btn btn-lg" style="border:2px solid rgba(255,255,255,.4);color:#fff">📞 (201) 978-0890</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 The Fix Buddy · <a href="tel:+12019780890">(201) 978-0890</a> · <a href="mailto:info@the-fix-buddy.com">info@the-fix-buddy.com</a></p>
+  </div>
+</footer>
+
+<script>
+const themeBtn = document.getElementById('themeBtn');
+let dark = true;
+function applyTheme() { document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light'); themeBtn.textContent = dark ? '☀️' : '🌙'; }
+themeBtn.addEventListener('click', () => { dark = !dark; applyTheme(); });
+applyTheme();
+window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20); });
+const hamBtn = document.getElementById('hamBtn');
+const mobMenu = document.getElementById('mobMenu');
+hamBtn.addEventListener('click', () => { hamBtn.classList.toggle('open'); mobMenu.classList.toggle('open'); });
+function closeMob() { hamBtn.classList.remove('open'); mobMenu.classList.remove('open'); }
+</script>
+</body>
+</html>

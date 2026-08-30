@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact The Fix Buddy — free estimates for painting, drywall, flooring and handyman services in Chicago.">
+<title>The Fix Buddy — Contact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<style>
+:root {
+  --color-brand:    #E8631F;
+  --color-brand-dk: #F07030;
+  --color-brand-lt: #2A1A0E;
+  --color-ink:      #F0EDE7;
+  --color-muted:    #9A9086;
+  --color-bg:       #151310;
+  --color-surface:  #1E1B17;
+  --color-border:   #302B25;
+  --color-stripe:   #1F1208;
+  --font-display:   'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+  --font-body:      'DM Sans', system-ui, -apple-system, sans-serif;
+}
+[data-theme="light"] {
+  --color-brand:    #D4500C; --color-brand-dk: #A83D09; --color-brand-lt: #FEF0E6;
+  --color-ink:      #1A1814; --color-muted:    #6B6560;
+  --color-bg:       #F6F4F0; --color-surface:  #FFFFFF;
+  --color-border:   #DDD9D2; --color-stripe:   #FFF5EF;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-ink); }
+a { color: inherit; text-decoration: none; }
+h1, h2 { font-family: var(--font-display); letter-spacing: .03em; line-height: 1; }
+h3 { font-family: var(--font-display); }
+.wrap { max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .625rem 1.25rem; border-radius: .375rem;
+  font-weight: 600; font-size: .875rem; font-family: var(--font-body);
+  cursor: pointer; transition: all .2s; border: 2px solid transparent; white-space: nowrap;
+}
+.btn-primary { background: var(--color-brand); color: #fff; border-color: var(--color-brand); }
+.btn-primary:hover { background: var(--color-brand-dk); border-color: var(--color-brand-dk); }
+.btn-outline { color: var(--color-brand); border-color: var(--color-brand); background: transparent; }
+.btn-outline:hover { background: var(--color-brand-lt); }
+.btn-lg { padding: .75rem 1.5rem; font-size: 1rem; }
+.eyebrow { display: block; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--color-brand); margin-bottom: .75rem; }
+
+/* NAV */
+.nav-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--color-surface); border-bottom: 1px solid var(--color-border); transition: box-shadow .3s;
+}
+.nav-bar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.1); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 64px; }
+.logo-link { flex-shrink: 0; display: flex; align-items: center; }
+.logo-img  { height: 44px; width: auto; object-fit: contain; display: block; }
+.nav-links { display: none; }
+.nav-links ul { display: flex; gap: 1.5rem; list-style: none; }
+.nav-lnk { font-size: .85rem; font-weight: 500; color: var(--color-muted); transition: color .18s; }
+.nav-lnk:hover, .nav-active { color: var(--color-brand); }
+.nav-right { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
+.nav-tel { font-weight: 600; font-size: .875rem; color: var(--color-ink); white-space: nowrap; display: none; }
+.theme-btn { width: 36px; height: 36px; border-radius: 50%; background: var(--color-surface); border: 1px solid var(--color-border); cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background .18s, transform .18s; }
+.theme-btn:hover { background: var(--color-brand-lt); transform: rotate(15deg); }
+.ham { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.ham span { display: block; width: 24px; height: 2px; background: var(--color-ink); border-radius: 2px; transition: transform .28s, opacity .18s; }
+.ham.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ham.open span:nth-child(2) { opacity: 0; }
+.ham.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mob-menu { background: var(--color-surface); border-top: 1px solid var(--color-border); max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.mob-menu.open { max-height: 540px; }
+.mob-lnk { display: block; padding: .8rem 1rem; color: var(--color-muted); font-weight: 500; font-size: .9rem; border-bottom: 1px solid var(--color-border); transition: color .18s, background .18s; }
+.mob-lnk:hover { color: var(--color-brand); background: var(--color-stripe); }
+.mob-cta { padding: 1rem; display: flex; flex-direction: column; gap: .6rem; }
+@media (min-width: 860px) { .nav-links { display: block; } .nav-tel { display: block; } .ham { display: none; } }
+
+/* PAGE HERO */
+.page-main { padding-top: 64px; }
+.page-hero { background: linear-gradient(150deg, #0e0c0a 0%, #1a1208 50%, #2a1508 100%); padding: 4.5rem 0 3.5rem; text-align: center; }
+.page-hero .eyebrow { color: #D4500C; }
+.page-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: .75rem; color: #fff; }
+.page-hero > .wrap > p { color: #b0a89e; font-size: 1rem; max-width: 55ch; margin-inline: auto; }
+
+/* CONTACT */
+.contact-sec { background: var(--color-stripe); padding: 5rem 0; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start; }
+.c-methods { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+.c-method { display: flex; align-items: center; gap: .9rem; }
+.c-icon { width: 44px; height: 44px; background: var(--color-brand-lt); border: 1px solid rgba(212,80,12,.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+.c-lbl { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-muted); }
+.c-val { font-weight: 600; font-size: .95rem; color: var(--color-ink); }
+.c-val a { transition: color .18s; }
+.c-val a:hover { color: var(--color-brand); }
+.cta-stack { display: flex; flex-direction: column; gap: .65rem; margin-bottom: 1.5rem; }
+.big-cta { display: flex; align-items: center; justify-content: center; gap: .45rem; padding: .9rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 1.05rem; transition: all .18s; }
+.big-cta-primary { background: var(--color-brand); color: #fff; box-shadow: 0 4px 16px rgba(212,80,12,.3); }
+.big-cta-primary:hover { background: var(--color-brand-dk); transform: translateY(-1px); }
+.big-cta-sec { background: var(--color-surface); color: var(--color-ink); border: 1.5px solid var(--color-border); }
+.big-cta-sec:hover { border-color: var(--color-brand); color: var(--color-brand); }
+.badges { display: flex; flex-wrap: wrap; gap: .6rem; }
+.badge { padding: .4rem .9rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 100px; font-size: .8rem; font-weight: 500; color: var(--color-ink); }
+.c-form { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: 2rem; box-shadow: 0 8px 32px rgba(0,0,0,.1); }
+.c-form h3 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--color-ink); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.fg { display: flex; flex-direction: column; gap: .3rem; margin-bottom: 1rem; }
+.fg label { font-size: .73rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--color-muted); }
+.fg input, .fg select, .fg textarea { padding: .68rem .9rem; background: var(--color-bg); border: 1.5px solid var(--color-border); border-radius: 6px; font-size: .875rem; color: var(--color-ink); transition: border-color .18s; outline: none; width: 100%; font-family: var(--font-body); }
+.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--color-brand); }
+.fg textarea { resize: vertical; min-height: 96px; }
+.fg select option { background: var(--color-surface); }
+.submit-btn { width: 100%; padding: .9rem; background: var(--color-brand); color: #fff; border: none; border-radius: 6px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background .18s, transform .18s; letter-spacing: .04em; margin-top: .35rem; box-shadow: 0 4px 16px rgba(212,80,12,.3); font-family: var(--font-body); }
+.submit-btn:hover { background: var(--color-brand-dk); transform: translateY(-1px); }
+.form-ok { text-align: center; padding: 3rem 1rem; display: none; }
+.form-ok.show { display: block; }
+.form-fields.hide { display: none; }
+.form-ok-icon { font-size: 3rem; margin-bottom: 1rem; }
+.form-ok h4 { font-size: 2rem; margin-bottom: .5rem; color: var(--color-ink); font-family: var(--font-display); }
+.form-ok p { color: var(--color-muted); font-size: .9rem; }
+
+/* CTA BANNER */
+.cta-banner { background: #1A1814; padding-block: 4rem; }
+.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.cta-banner h2 { font-size: clamp(1.8rem, 4vw, 3rem); color: #fff; margin-bottom: .4rem; }
+.cta-banner p  { color: rgba(255,255,255,.6); font-size: .95rem; }
+.cta-btns { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+footer { padding: 2rem 0; background: #1A1814; color: rgba(255,255,255,.55); border-top: 1px solid rgba(255,255,255,.08); text-align: center; }
+footer p { font-size: .8rem; line-height: 1.8; }
+footer a { color: var(--color-brand); }
+
+@media (max-width: 780px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+@media (max-width: 680px) { .cta-inner { flex-direction: column; text-align: center; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="nav-bar" id="navbar">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo-link"><img src="logo.png" alt="The Fix Buddy" class="logo-img"></a>
+    <nav class="nav-links">
+      <ul>
+        <li><a href="index.html#services" class="nav-lnk">Services</a></li>
+        <li><a href="about.html"  class="nav-lnk">About</a></li>
+        <li><a href="contact.html" class="nav-lnk nav-active">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <span class="nav-tel">📞 (201) 978-0890</span>
+      <a href="contact.html" class="btn btn-primary">Free Estimate</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+      <button class="ham" id="hamBtn" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a href="index.html#services" class="mob-lnk" onclick="closeMob()">Services</a>
+    <a href="about.html"   class="mob-lnk" onclick="closeMob()">About</a>
+    <a href="contact.html" class="mob-lnk" onclick="closeMob()">Contact</a>
+    <div class="mob-cta">
+      <a href="tel:+12019780890" class="btn btn-primary btn-lg" style="justify-content:center">📞 Call (201) 978-0890</a>
+    </div>
+  </div>
+</header>
+
+<main class="page-main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Get In Touch</span>
+      <h1>Get a Free Estimate</h1>
+      <p>Ready to start your project? Reach out and we'll get back to you fast — usually within a few hours.</p>
+    </div>
+  </section>
+
+  <section class="contact-sec">
+    <div class="wrap contact-grid">
+
+      <div class="contact-info">
+        <div class="c-methods">
+          <div class="c-method">
+            <div class="c-icon">📞</div>
+            <div>
+              <div class="c-lbl">Call or Text</div>
+              <div class="c-val"><a href="tel:+12019780890">(201) 978-0890</a></div>
+            </div>
+          </div>
+          <div class="c-method">
+            <div class="c-icon">✉️</div>
+            <div>
+              <div class="c-lbl">Email</div>
+              <div class="c-val"><a href="mailto:info@the-fix-buddy.com">info@the-fix-buddy.com</a></div>
+            </div>
+          </div>
+          <div class="c-method">
+            <div class="c-icon">🌐</div>
+            <div>
+              <div class="c-lbl">Website</div>
+              <div class="c-val">the-fix-buddy.com</div>
+            </div>
+          </div>
+        </div>
+        <div class="cta-stack">
+          <a href="tel:+12019780890" class="big-cta big-cta-primary">📞 Call Now — (201) 978-0890</a>
+          <a href="sms:+12019780890" class="big-cta big-cta-sec">💬 Text Us</a>
+        </div>
+        <div class="badges">
+          <div class="badge">🛡️ Fully Insured</div>
+          <div class="badge">⚡ Fast Response</div>
+          <div class="badge">💬 Free Estimates</div>
+        </div>
+      </div>
+
+      <div class="c-form">
+        <div class="form-fields" id="formFields">
+          <h3>SEND US A MESSAGE</h3>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="fg">
+                <label>Name *</label>
+                <input type="text" name="name" required placeholder="John Smith">
+              </div>
+              <div class="fg">
+                <label>Phone *</label>
+                <input type="tel" name="phone" required placeholder="(201) 000-0000">
+              </div>
+            </div>
+            <div class="fg">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="john@example.com">
+            </div>
+            <div class="fg">
+              <label>What service do you need? *</label>
+              <select name="service" required>
+                <option value="">Select a service…</option>
+                <option>Painting — Interior</option>
+                <option>Painting — Exterior</option>
+                <option>Drywall Repair</option>
+                <option>Handyman Services</option>
+                <option>TV Mounting</option>
+                <option>Flooring</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Tell us about the project</label>
+              <textarea name="message" placeholder="Describe your project…"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Get My Free Estimate →</button>
+          </form>
+        </div>
+        <div class="form-ok" id="formOk">
+          <div class="form-ok-icon">✅</div>
+          <h4>MESSAGE SENT!</h4>
+          <p>We'll get back to you within 24 hours.<br>For urgent requests call <strong>(201) 978-0890</strong>.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 The Fix Buddy · <a href="tel:+12019780890">(201) 978-0890</a> · <a href="mailto:info@the-fix-buddy.com">info@the-fix-buddy.com</a></p>
+  </div>
+</footer>
+
+<script>
+// dark mode
+const themeBtn = document.getElementById('themeBtn');
+let dark = true;
+function applyTheme() { document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light'); themeBtn.textContent = dark ? '☀️' : '🌙'; }
+themeBtn.addEventListener('click', () => { dark = !dark; applyTheme(); });
+applyTheme();
+
+// nav scroll
+window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20); });
+
+// mobile menu
+const hamBtn = document.getElementById('hamBtn');
+const mobMenu = document.getElementById('mobMenu');
+hamBtn.addEventListener('click', () => { hamBtn.classList.toggle('open'); mobMenu.classList.toggle('open'); });
+function closeMob() { hamBtn.classList.remove('open'); mobMenu.classList.remove('open'); }
+
+// form — sends via mailto (no backend needed)
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const d = new FormData(this);
+  const body = `Name: ${d.get('name')}\nPhone: ${d.get('phone')}\nEmail: ${d.get('email')}\nService: ${d.get('service')}\n\nMessage:\n${d.get('message')}`;
+  window.location.href = `mailto:info@the-fix-buddy.com?subject=Free Estimate Request — ${d.get('service')}&body=${encodeURIComponent(body)}`;
+  setTimeout(() => {
+    document.getElementById('formFields').classList.add('hide');
+    document.getElementById('formOk').classList.add('show');
+  }, 500);
+});
+</script>
+</body>
+</html>
