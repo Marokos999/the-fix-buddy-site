@@ -1,5 +1,8 @@
 <svg viewBox="0 0 500 560" xmlns="http://www.w3.org/2000/svg">
 
+  <!-- White background -->
+  <rect width="500" height="560" fill="white" rx="10"/>
+
   <!-- ── HOUSE OUTLINE ── -->
   <!-- Chimney (behind roof) -->
   <rect x="316" y="82" width="34" height="104" rx="2" fill="#1B2E4B"/>
