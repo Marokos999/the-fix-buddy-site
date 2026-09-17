@@ -2,11 +2,37 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="logo.jpg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Drywall Painter Pro — Chicago's trusted drywall, painting, and handyman service. Licensed, insured, free estimates.">
-<title>Drywall Painter Pro</title>
+<title>Painting &amp; Drywall Repair in Chicago | Drywall Painter Pro</title>
+<meta name="description" content="Drywall Painter Pro — painting, drywall repair, flooring, TV mounting &amp; handyman services in Chicago and suburbs. Licensed, insured, free estimates. Call (630) 724-5754.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Drywall Painter Pro">
+<meta name="theme-color" content="#E8631F">
+<meta name="geo.region" content="US-IL">
+<meta name="geo.placename" content="Chicago">
+<link rel="canonical" href="https://drywallpainterpro.com/">
+<link rel="alternate" hreflang="en-US" href="https://drywallpainterpro.com/">
+<link rel="alternate" hreflang="x-default" href="https://drywallpainterpro.com/">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Drywall Painter Pro">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Painting &amp; Drywall Repair in Chicago | Drywall Painter Pro">
+<meta property="og:description" content="Painting, drywall, flooring, TV mounting &amp; handyman services in Chicago and suburbs. Licensed · Insured · Free estimates.">
+<meta property="og:url" content="https://drywallpainterpro.com/">
+<meta property="og:image" content="https://drywallpainterpro.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Drywall Painter Pro — painting and drywall in Chicago">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Painting &amp; Drywall Repair in Chicago | Drywall Painter Pro">
+<meta name="twitter:description" content="Painting, drywall, flooring, TV mounting &amp; handyman services in Chicago and suburbs. Free estimates — (630) 724-5754.">
+<meta name="twitter:image" content="https://drywallpainterpro.com/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap">
 <style>
 
@@ -108,7 +134,8 @@ h3, h4 { font-family: var(--font-body); font-weight: 700; letter-spacing: -.01em
 .nav-lnk { font-size: .85rem; font-weight: 500; color: var(--color-muted); transition: color .18s; }
 .nav-lnk:hover { color: var(--color-brand); }
 .nav-right { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
-.nav-tel { font-weight: 600; font-size: .875rem; color: var(--color-ink); white-space: nowrap; display: none; }
+.nav-tel { font-weight: 600; font-size: .875rem; color: var(--color-ink); white-space: nowrap; display: none; transition: color .18s; }
+.nav-tel:hover { color: var(--color-brand); }
 .theme-btn {
   width: 36px; height: 36px; border-radius: 50%;
   background: var(--color-surface); border: 1px solid var(--color-border);
@@ -241,10 +268,36 @@ h3, h4 { font-family: var(--font-body); font-weight: 700; letter-spacing: -.01em
 /* ── VIDEO ────────────────────────────────────────────── */
 .vid-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 .vid-wrap {
-  border-radius: 16px; overflow: hidden;
+  position: relative; border-radius: 16px; overflow: hidden;
   border: 1px solid var(--color-border); background: #000; aspect-ratio: 16/9;
 }
 .vid-player { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vid-facade {
+  position: absolute; inset: 0; z-index: 2; border: none; cursor: pointer;
+  padding: 0; background: #000 center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center;
+}
+.vid-facade::before {
+  content: ""; position: absolute; inset: 0;
+  background: rgba(0,0,0,.35);
+}
+.vid-facade .play {
+  position: relative; z-index: 1;
+  width: 68px; height: 68px; border-radius: 50%;
+  background: var(--color-brand); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  transition: transform .2s, background .2s;
+}
+.vid-facade .play::after {
+  content: "";
+  margin-left: 4px;
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent #fff;
+}
+.vid-facade:hover .play { transform: scale(1.06); background: var(--color-brand-dk); }
+.vid-wrap.is-playing .vid-facade { display: none; }
 
 /* ── WHY US ───────────────────────────────────────────── */
 .why-sec { padding: 0 0 5rem; background: var(--color-bg); }
@@ -284,6 +337,54 @@ h3, h4 { font-family: var(--font-body); font-weight: 700; letter-spacing: -.01em
 .area-tag.hi { background: var(--color-brand); border-color: var(--color-brand); color: #fff; }
 .area-tag:not(.hi):hover { border-color: var(--color-brand); color: var(--color-brand); background: var(--color-brand-lt); }
 
+/* ── FAQ ──────────────────────────────────────────────── */
+.faq { display: flex; flex-direction: column; gap: .7rem; max-width: 48rem; margin-inline: auto; }
+.faq details {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: 12px; padding: 0 1.15rem; overflow: hidden;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.faq details[open] {
+  border-color: rgba(232,99,31,.45);
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+.faq summary {
+  cursor: pointer; font-weight: 700; color: var(--color-ink); list-style: none;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.05rem 0; user-select: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: .55rem; height: .55rem;
+  border-right: 2px solid var(--color-brand);
+  border-bottom: 2px solid var(--color-brand);
+  transform: rotate(45deg);
+  transition: transform .28s ease;
+  margin-top: -.2rem;
+}
+.faq details[open] summary::after {
+  transform: rotate(225deg);
+  margin-top: .15rem;
+}
+.faq .faq-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .32s ease;
+}
+.faq details[open] .faq-body { grid-template-rows: 1fr; }
+.faq .faq-body > div { overflow: hidden; }
+.faq .faq-body p {
+  color: var(--color-muted); font-size: .9rem; line-height: 1.7;
+  padding: 0 0 1.1rem; margin: 0;
+  opacity: 0; transform: translateY(-6px);
+  transition: opacity .28s ease, transform .28s ease;
+}
+.faq details[open] .faq-body p {
+  opacity: 1; transform: none;
+}
+
 /* ── CTA BANNER ───────────────────────────────────────── */
 .cta-banner { background: #1A1814; padding-block: 4rem; }
 .cta-inner  { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
@@ -314,14 +415,14 @@ footer {
   font-size: .7rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase;
   color: rgba(255,255,255,.3); margin-bottom: 1rem;
 }
-.foot-col ul { display: flex; flex-direction: column; gap: .45rem; }
+.foot-col ul { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
 .foot-col a { font-size: .85rem; color: rgba(255,255,255,.5); transition: color .18s; }
 .foot-col a:hover { color: var(--color-brand); }
 .foot-bottom {
   display: flex; align-items: center; justify-content: space-between;
   flex-wrap: wrap; gap: .75rem; font-size: .78rem;
 }
-.foot-bottom a { text-decoration: underline; transition: color .18s; }
+.foot-bottom a { color: inherit; text-decoration: underline; transition: color .18s; }
 .foot-bottom a:hover { color: var(--color-brand); }
 
 /* ── RESPONSIVE ───────────────────────────────────────── */
@@ -345,18 +446,19 @@ footer {
 <!-- ── NAV ────────────────────────────────────────────── -->
 <header class="nav-bar" id="navbar">
   <div class="wrap nav-inner">
-    <a href="#" class="logo-link">
-      <img src="logo.jpg" alt="Drywall Painter Pro" class="logo-img">
+    <a href="/" class="logo-link">
+      <img src="logo.jpg" alt="Drywall Painter Pro" class="logo-img" width="160" height="44">
     </a>
     <nav class="nav-links" aria-label="Site navigation">
       <ul>
         <li><a href="#services"   class="nav-lnk">Services</a></li>
-        <li><a href="contact.html" class="nav-lnk">Contact</a></li>
+        <li><a href="/about"   class="nav-lnk">About</a></li>
+        <li><a href="/contact" class="nav-lnk">Contact</a></li>
       </ul>
     </nav>
     <div class="nav-right">
-      <span class="nav-tel">📞 (630) 724-5754</span>
-      <a href="contact.html" class="btn btn-primary">Free Estimate</a>
+      <a class="nav-tel" href="tel:+16307245754">📞 (630) 724-5754</a>
+      <a href="/contact" class="btn btn-primary">Free Estimate</a>
       <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
       <button class="ham" id="hamBtn" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -365,10 +467,11 @@ footer {
   </div>
   <div class="mob-menu" id="mobMenu">
     <a href="#services"   class="mob-lnk" onclick="closeMob()">Services</a>
-    <a href="contact.html" class="mob-lnk" onclick="closeMob()">Contact</a>
+    <a href="/about"   class="mob-lnk" onclick="closeMob()">About</a>
+    <a href="/contact" class="mob-lnk" onclick="closeMob()">Contact</a>
     <div class="mob-cta">
       <a href="tel:+16307245754" class="btn btn-primary btn-lg" style="justify-content:center">📞 Call (630) 724-5754</a>
-      <a href="contact.html" class="btn btn-outline btn-lg" style="justify-content:center" onclick="closeMob()">Get Free Estimate</a>
+      <a href="/contact" class="btn btn-outline btn-lg" style="justify-content:center" onclick="closeMob()">Get Free Estimate</a>
     </div>
   </div>
 </header>
@@ -381,11 +484,11 @@ footer {
     <div class="hero-deco hero-deco-2"></div>
     <div class="wrap hero-inner">
       <div class="hero-badge">⭐ CHICAGO'S #1 HANDYMAN</div>
-      <h1 class="hero-h1">WE FIX IT.<br><em>YOU LOVE IT.</em></h1>
-      <p class="hero-sub">Painting, drywall, flooring, TV mounting &amp; more.<br>Licensed · Insured · On-time.</p>
+      <h1 class="hero-h1">PAINTING &amp; DRYWALL<br><em>IN CHICAGO</em></h1>
+      <p class="hero-sub">Painting, drywall, flooring, TV mounting &amp; more.<br>Licensed · Insured · On-time. We fix it — you love it.</p>
       <div class="hero-actions">
         <a href="tel:+16307245754" class="btn btn-primary btn-lg">📞 (630) 724-5754</a>
-        <a href="#contact" class="btn-hero-outline btn-lg">Get Free Estimate</a>
+        <a href="/contact" class="btn-hero-outline btn-lg">Get Free Estimate</a>
       </div>
     </div>
   </section>
@@ -438,8 +541,18 @@ footer {
           <div class="ba-slide active">
             <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
             <div class="ba-imgs">
-              <div class="ba-img-wrap"><img src="gallery/kitchen-before.jpg" alt="Before" loading="eager"></div>
-              <div class="ba-img-wrap"><img src="gallery/kitchen-after.jpg"  alt="After"  loading="eager"></div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/kitchen-before.webp" type="image/webp">
+                  <img src="gallery/kitchen-before.jpg" alt="Kitchen before renovation — Chicago-area home" width="800" height="600" loading="eager" decoding="async" fetchpriority="high">
+                </picture>
+              </div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/kitchen-after.webp" type="image/webp">
+                  <img src="gallery/kitchen-after.jpg" alt="Kitchen after painting, cabinets, and flooring by Drywall Painter Pro" width="800" height="600" loading="eager" decoding="async" fetchpriority="high">
+                </picture>
+              </div>
             </div>
             <p class="ba-caption">Kitchen Renovation — Cabinets, Countertops &amp; Flooring</p>
           </div>
@@ -447,8 +560,18 @@ footer {
           <div class="ba-slide">
             <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
             <div class="ba-imgs">
-              <div class="ba-img-wrap"><img src="gallery/kitchen-during.jpg"  alt="Before" loading="lazy"></div>
-              <div class="ba-img-wrap"><img src="gallery/kitchen-after2.jpg"  alt="After"  loading="lazy"></div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/kitchen-during.webp" type="image/webp">
+                  <img src="gallery/kitchen-during.jpg" alt="Kitchen remodel in progress" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/kitchen-after2.webp" type="image/webp">
+                  <img src="gallery/kitchen-after2.jpg" alt="Finished kitchen remodel with painted surfaces" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
             </div>
             <p class="ba-caption">Kitchen Remodel — Installation to Finished Result</p>
           </div>
@@ -456,8 +579,18 @@ footer {
           <div class="ba-slide">
             <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
             <div class="ba-imgs">
-              <div class="ba-img-wrap"><img src="gallery/patio-before.jpg" alt="Before" loading="lazy"></div>
-              <div class="ba-img-wrap"><img src="gallery/patio-after.jpg"  alt="After"  loading="lazy"></div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/patio-before.webp" type="image/webp">
+                  <img src="gallery/patio-before.jpg" alt="Backyard before paver patio installation" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/patio-after.webp" type="image/webp">
+                  <img src="gallery/patio-after.jpg" alt="Completed paver patio and fire-pit area" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
             </div>
             <p class="ba-caption">Backyard Patio — Paver Installation &amp; Fire Pit Area</p>
           </div>
@@ -465,8 +598,18 @@ footer {
           <div class="ba-slide">
             <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
             <div class="ba-imgs">
-              <div class="ba-img-wrap"><img src="gallery/drainage-during.jpg"      alt="Before" loading="lazy"></div>
-              <div class="ba-img-wrap"><img src="gallery/patio-expanded-after.jpg" alt="After"  loading="lazy"></div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/drainage-during.webp" type="image/webp">
+                  <img src="gallery/drainage-during.jpg" alt="Yard drainage work during patio expansion" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/patio-expanded-after.webp" type="image/webp">
+                  <img src="gallery/patio-expanded-after.jpg" alt="Expanded patio with drainage and new pavers" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
             </div>
             <p class="ba-caption">Patio Expansion — Drainage System &amp; Extended Pavers</p>
           </div>
@@ -474,8 +617,18 @@ footer {
           <div class="ba-slide">
             <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
             <div class="ba-imgs">
-              <div class="ba-img-wrap"><img src="gallery/patio2-before.jpg" alt="Before" loading="lazy"></div>
-              <div class="ba-img-wrap"><img src="gallery/patio2-after.jpg"  alt="After"  loading="lazy"></div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/patio2-before.webp" type="image/webp">
+                  <img src="gallery/patio2-before.jpg" alt="Original small patio before expansion" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/patio2-after.webp" type="image/webp">
+                  <img src="gallery/patio2-after.jpg" alt="Extended backyard patio after construction" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
             </div>
             <p class="ba-caption">Backyard Transformation — Original Patio to Full Extension</p>
           </div>
@@ -483,8 +636,18 @@ footer {
           <div class="ba-slide">
             <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
             <div class="ba-imgs">
-              <div class="ba-img-wrap"><img src="gallery/room-framing-before.jpg" alt="Before" loading="lazy"></div>
-              <div class="ba-img-wrap"><img src="gallery/room-after.jpg"           alt="After"  loading="lazy"></div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/room-framing-before.webp" type="image/webp">
+                  <img src="gallery/room-framing-before.jpg" alt="Upstairs room steel framing before drywall" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/room-after.webp" type="image/webp">
+                  <img src="gallery/room-after.jpg" alt="Finished upstairs room after drywall, paint, and trim" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
             </div>
             <p class="ba-caption">Upstairs Room Addition — Steel Framing to Finished Space</p>
           </div>
@@ -492,8 +655,18 @@ footer {
           <div class="ba-slide">
             <div class="ba-header"><div class="ba-hdr-before">BEFORE</div><div class="ba-hdr-after">AFTER</div></div>
             <div class="ba-imgs">
-              <div class="ba-img-wrap"><img src="gallery/drywall-before.jpg" alt="Before" loading="lazy"></div>
-              <div class="ba-img-wrap"><img src="gallery/hallway-after.jpg"  alt="After"  loading="lazy"></div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/drywall-before.webp" type="image/webp">
+                  <img src="gallery/drywall-before.jpg" alt="Unfinished drywall before taping, mudding, and paint" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="ba-img-wrap">
+                <picture>
+                  <source srcset="gallery/hallway-after.webp" type="image/webp">
+                  <img src="gallery/hallway-after.jpg" alt="Hallway after drywall finishing and interior painting" width="800" height="600" loading="lazy" decoding="async">
+                </picture>
+              </div>
             </div>
             <p class="ba-caption">Drywall &amp; Finishing — Raw Construction to Polished Walls</p>
           </div>
@@ -516,14 +689,16 @@ footer {
       </div>
       <div class="vid-grid">
         <div class="vid-wrap">
-          <video controls muted playsinline preload="metadata" class="vid-player">
-            <source src="gallery/project-video1.mp4" type="video/mp4">
-          </video>
+          <button type="button" class="vid-facade" style="background-image:url('gallery/kitchen-after.jpg')" aria-label="Play project video 1">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+          <video class="vid-player" controls playsinline preload="none" data-src="gallery/project-video1.mp4" title="Drywall Painter Pro project video 1"></video>
         </div>
         <div class="vid-wrap">
-          <video controls muted playsinline preload="metadata" class="vid-player">
-            <source src="gallery/project-video2.mp4" type="video/mp4">
-          </video>
+          <button type="button" class="vid-facade" style="background-image:url('gallery/hallway-after.jpg')" aria-label="Play project video 2">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+          <video class="vid-player" controls playsinline preload="none" data-src="gallery/project-video2.mp4" title="Drywall Painter Pro project video 2"></video>
         </div>
       </div>
     </div>
@@ -577,6 +752,42 @@ footer {
     </div>
   </section>
 
+  <!-- ── FAQ ────────────────────────────────────────────── -->
+  <section class="sec-pad" id="faq" style="background:var(--color-surface)" aria-labelledby="faq-heading">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Questions</span>
+        <h2 id="faq-heading">Before You Book</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Do you serve Chicago and the suburbs?</summary>
+          <div class="faq-body"><div>
+            <p>Yes. We work throughout Chicago and nearby suburbs including Naperville, Schaumburg, Aurora, Oak Park, Downers Grove, and more. Not sure we reach your town? Call (630) 724-5754.</p>
+          </div></div>
+        </details>
+        <details>
+          <summary>Is the estimate free?</summary>
+          <div class="faq-body"><div>
+            <p>Yes. Estimates are free and come with a clear scope so you know what is included before work starts.</p>
+          </div></div>
+        </details>
+        <details>
+          <summary>Are you insured?</summary>
+          <div class="faq-body"><div>
+            <p>Yes. We are insured so homeowners have coverage while we work in occupied homes.</p>
+          </div></div>
+        </details>
+        <details>
+          <summary>How fast can you start?</summary>
+          <div class="faq-body"><div>
+            <p>Many interior painting and drywall repair jobs can be scheduled within days, depending on season and size. Call or text and we will give you the next open window.</p>
+          </div></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ── CTA BANNER ────────────────────────────────────── -->
   <section class="cta-banner" id="contact">
     <div class="wrap cta-inner">
@@ -586,7 +797,7 @@ footer {
       </div>
       <div class="cta-btns">
         <a href="tel:+16307245754" class="btn btn-primary btn-lg">📞 (630) 724-5754</a>
-        <a href="mailto:info@drywallpainterpro.com" class="btn btn-lg" style="border:2px solid rgba(255,255,255,.4);color:#fff">Get Free Estimate</a>
+        <a href="/contact" class="btn btn-lg" style="border:2px solid rgba(255,255,255,.4);color:#fff">Get Free Estimate</a>
       </div>
     </div>
   </section>
@@ -598,27 +809,28 @@ footer {
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <h3>THE FIX <span>BUDDY</span></h3>
+        <h3>DRYWALL <span>PAINTER PRO</span></h3>
         <p>Professional painting, drywall, and handyman services in Chicago and surrounding suburbs.</p>
         <p>📞 <a href="tel:+16307245754">(630) 724-5754</a></p>
       </div>
       <div class="foot-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">Interior Painting</a></li>
-          <li><a href="#services">Exterior Painting</a></li>
-          <li><a href="#services">Drywall Repair</a></li>
-          <li><a href="#services">Handyman Services</a></li>
-          <li><a href="#services">Flooring</a></li>
-          <li><a href="#services">TV Mounting</a></li>
+          <li><a href="/#services">Interior Painting</a></li>
+          <li><a href="/#services">Exterior Painting</a></li>
+          <li><a href="/#services">Drywall Repair</a></li>
+          <li><a href="/#services">Handyman Services</a></li>
+          <li><a href="/#services">Flooring</a></li>
+          <li><a href="/#services">TV Mounting</a></li>
         </ul>
       </div>
       <div class="foot-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#contact">Free Estimate</a></li>
-          <li><a href="tel:+16307245754">Call Us</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/contact">Free Estimate</a></li>
+          <li><a href="/privacy">Privacy</a></li>
         </ul>
       </div>
     </div>
@@ -694,6 +906,124 @@ document.addEventListener('keydown', e => {
 document.querySelector('.ba-viewport').addEventListener('mouseenter', () => clearInterval(timer));
 document.querySelector('.ba-viewport').addEventListener('mouseleave', resetTimer);
 resetTimer();
+
+// ── CLICK-TO-LOAD VIDEOS ─────────────────────────────────
+document.querySelectorAll('.vid-wrap').forEach(wrap => {
+  const facade = wrap.querySelector('.vid-facade');
+  const video = wrap.querySelector('video');
+  if (!facade || !video) return;
+  facade.addEventListener('click', () => {
+    if (!video.src) {
+      video.src = video.dataset.src;
+      video.load();
+    }
+    wrap.classList.add('is-playing');
+    video.play().catch(() => {});
+  });
+});
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["HomeAndConstructionBusiness", "HousePainter"],
+      "@id": "https://drywallpainterpro.com/#business",
+      "name": "Drywall Painter Pro",
+      "url": "https://drywallpainterpro.com/",
+      "telephone": "+16307245754",
+      "email": "info@drywallpainterpro.com",
+      "image": ["https://drywallpainterpro.com/og.jpg", "https://drywallpainterpro.com/logo.jpg"],
+      "logo": { "@type": "ImageObject", "url": "https://drywallpainterpro.com/logo.jpg" },
+      "description": "Painting, drywall repair, flooring, TV mounting, and handyman services in Chicago and surrounding suburbs.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chicago",
+        "addressRegion": "IL",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Chicago, IL", "Naperville, IL", "Schaumburg, IL", "Aurora, IL", "Elgin, IL",
+        "Joliet, IL", "Evanston, IL", "Oak Park, IL", "Berwyn, IL", "Arlington Heights, IL",
+        "Des Plaines, IL", "Orland Park, IL", "Downers Grove, IL"
+      ],
+      "priceRange": "$$",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Home services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Painting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Exterior Painting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drywall Repair" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Handyman Services" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "TV Mounting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Flooring" } }
+        ]
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+16307245754",
+        "contactType": "customer service",
+        "areaServed": "US",
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://drywallpainterpro.com/#website",
+      "url": "https://drywallpainterpro.com/",
+      "name": "Drywall Painter Pro",
+      "publisher": { "@id": "https://drywallpainterpro.com/#business" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://drywallpainterpro.com/#webpage",
+      "url": "https://drywallpainterpro.com/",
+      "name": "Painting & Drywall Repair in Chicago | Drywall Painter Pro",
+      "isPartOf": { "@id": "https://drywallpainterpro.com/#website" },
+      "about": { "@id": "https://drywallpainterpro.com/#business" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://drywallpainterpro.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you serve Chicago and the suburbs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We work throughout Chicago and nearby suburbs including Naperville, Schaumburg, Aurora, Oak Park, Downers Grove, and more. Call (630) 724-5754 if you are unsure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the estimate free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Estimates are free and come with a clear scope so you know what is included before work starts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are you insured?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We are insured so homeowners have coverage while we work in occupied homes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast can you start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many interior painting and drywall repair jobs can be scheduled within days, depending on season and size."
+          }
+        }
+      ]
+    }
+  ]
+}
 </script>
 </body>
 </html>

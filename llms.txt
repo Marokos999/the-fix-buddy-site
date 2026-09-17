@@ -1,0 +1,24 @@
+# Drywall Painter Pro
+
+> Painting, drywall repair, flooring, TV mounting, and handyman services in Chicago and western Illinois suburbs. Phone (630) 724-5754. Email info@drywallpainterpro.com.
+
+## Pages
+
+- [Home](https://drywallpainterpro.com/): Main service overview
+- [About](https://drywallpainterpro.com/about): Company background
+- [Contact](https://drywallpainterpro.com/contact): Free estimate form
+- [Privacy](https://drywallpainterpro.com/privacy): Privacy policy
+
+## Services
+
+- Interior & exterior painting
+- Drywall repair
+- Handyman services
+- TV mounting
+- Flooring
+
+## Contact
+
+- Phone: (630) 724-5754
+- Email: info@drywallpainterpro.com
+- Area: Chicago, IL and surrounding suburbs (Naperville, Schaumburg, Aurora, Oak Park, Downers Grove, and more)
