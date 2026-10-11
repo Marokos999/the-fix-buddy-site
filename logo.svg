@@ -1,145 +1,182 @@
-<svg viewBox="0 0 500 560" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 500 572" xmlns="http://www.w3.org/2000/svg">
 
   <!-- White background -->
-  <rect width="500" height="560" fill="white" rx="10"/>
+  <rect width="500" height="572" fill="white"/>
 
-  <!-- ── HOUSE OUTLINE ── -->
-  <!-- Chimney (behind roof) -->
-  <rect x="316" y="82" width="34" height="104" rx="2" fill="#1B2E4B"/>
+  <!-- ── CHIMNEY ── -->
+  <rect x="322" y="78" width="30" height="106" fill="#1B2E4B"/>
 
-  <!-- Roof -->
-  <polygon points="250,36 462,200 38,200"
-    fill="none" stroke="#1B2E4B" stroke-width="12"
+  <!-- ── ROOF ── -->
+  <polygon points="250,30 464,194 36,194"
+    fill="none" stroke="#1B2E4B" stroke-width="11"
     stroke-linejoin="round" stroke-linecap="round"/>
 
-  <!-- Left wall -->
-  <line x1="64" y1="198" x2="64" y2="340"
-    stroke="#1B2E4B" stroke-width="12" stroke-linecap="round"/>
-  <!-- Right wall -->
-  <line x1="436" y1="198" x2="436" y2="340"
-    stroke="#1B2E4B" stroke-width="12" stroke-linecap="round"/>
-  <!-- Base -->
-  <line x1="58" y1="340" x2="442" y2="340"
-    stroke="#1B2E4B" stroke-width="12" stroke-linecap="round"/>
+  <!-- ── HOUSE BODY (outer rect) ── -->
+  <rect x="60" y="194" width="380" height="150"
+    fill="none" stroke="#1B2E4B" stroke-width="11"/>
 
-  <!-- Window -->
-  <rect x="212" y="110" width="76" height="60" rx="4"
+  <!-- ── INTERNAL DIVIDERS ── -->
+  <line x1="187" y1="194" x2="187" y2="344" stroke="#1B2E4B" stroke-width="9"/>
+  <line x1="313" y1="194" x2="313" y2="344" stroke="#1B2E4B" stroke-width="9"/>
+
+  <!-- ── WINDOW (4-pane) ── -->
+  <rect x="213" y="102" width="74" height="60" rx="3"
     fill="none" stroke="#1B2E4B" stroke-width="8"/>
-  <line x1="250" y1="110" x2="250" y2="170"
-    stroke="#1B2E4B" stroke-width="4"/>
-  <line x1="212" y1="140" x2="288" y2="140"
-    stroke="#1B2E4B" stroke-width="4"/>
+  <line x1="250" y1="102" x2="250" y2="162" stroke="#1B2E4B" stroke-width="4"/>
+  <line x1="213" y1="132" x2="287" y2="132" stroke="#1B2E4B" stroke-width="4"/>
 
-  <!-- ── TOOLS ── -->
-
-  <!-- Screwdriver (navy, left, angled) -->
-  <g transform="translate(154,248) rotate(38)">
-    <!-- handle -->
-    <rect x="-13" y="-36" width="26" height="32" rx="6" fill="#1B2E4B"/>
-    <!-- shaft -->
-    <rect x="-5" y="-4" width="10" height="78" rx="3" fill="#1B2E4B"/>
-    <!-- flat tip -->
-    <rect x="-7" y="74" width="14" height="8" rx="1" fill="#1B2E4B"/>
+  <!-- ══ LEFT PANEL: PAINT ROLLER ══ -->
+  <g transform="translate(124,265)">
+    <g transform="rotate(18)">
+      <!-- handle -->
+      <rect x="-7" y="12" width="14" height="72" rx="6" fill="#E8631F"/>
+      <!-- vertical frame arm -->
+      <rect x="-5" y="-42" width="10" height="58" rx="3" fill="#1B2E4B"/>
+      <!-- horizontal arm -->
+      <rect x="-42" y="-46" width="40" height="10" rx="3" fill="#1B2E4B"/>
+      <!-- roller cylinder -->
+      <rect x="-58" y="-68" width="42" height="24" rx="12" fill="#E8631F"/>
+      <!-- end caps -->
+      <circle cx="-58" cy="-56" r="12" fill="#E8631F"/>
+      <circle cx="-16" cy="-56" r="12" fill="#E8631F"/>
+      <!-- roller texture lines -->
+      <line x1="-50" y1="-68" x2="-50" y2="-32" stroke="rgba(0,0,0,.15)" stroke-width="2"/>
+      <line x1="-42" y1="-68" x2="-42" y2="-32" stroke="rgba(0,0,0,.15)" stroke-width="2"/>
+      <line x1="-34" y1="-68" x2="-34" y2="-32" stroke="rgba(0,0,0,.15)" stroke-width="2"/>
+      <line x1="-26" y1="-68" x2="-26" y2="-32" stroke="rgba(0,0,0,.15)" stroke-width="2"/>
+    </g>
   </g>
 
-  <!-- Hammer (orange, center) -->
-  <g transform="translate(250,248) rotate(-10)">
-    <!-- handle -->
-    <rect x="-8" y="5" width="16" height="105" rx="6" fill="#E8631F"/>
-    <!-- head body -->
-    <rect x="-36" y="-24" width="72" height="34" rx="7" fill="#E8631F"/>
-    <!-- claw cut-out on left -->
-    <rect x="-36" y="-24" width="18" height="16" rx="3" fill="white"/>
+  <!-- ══ CENTER PANEL: DRILL ══ -->
+  <g transform="translate(250,272)">
+    <g transform="rotate(-18)">
+      <!-- main body -->
+      <rect x="-30" y="-65" width="58" height="42" rx="9" fill="#E8631F"/>
+      <!-- body accent stripe -->
+      <rect x="-30" y="-48" width="58" height="10" rx="0" fill="#1B2E4B" opacity=".25"/>
+      <!-- chuck housing -->
+      <rect x="26" y="-57" width="28" height="24" rx="5" fill="#1B2E4B"/>
+      <!-- bit -->
+      <rect x="52" y="-48" width="22" height="6" rx="2" fill="#1B2E4B"/>
+      <!-- handle/grip -->
+      <rect x="-32" y="-25" width="22" height="38" rx="7" fill="#1B2E4B"/>
+      <!-- trigger -->
+      <rect x="-24" y="-10" width="10" height="14" rx="3" fill="#E8631F"/>
+      <!-- battery pack -->
+      <rect x="-38" y="13" width="34" height="20" rx="6" fill="#E8631F"/>
+      <rect x="-32" y="17" width="22" height="5" rx="2" fill="rgba(255,255,255,.3)"/>
+    </g>
   </g>
 
-  <!-- Wrench (navy, right, angled) -->
-  <g transform="translate(346,248) rotate(-38)">
+  <!-- ══ RIGHT PANEL: DRYWALL KNIFE ══ -->
+  <g transform="translate(376,265)">
+    <!-- blade (trapezoid, white fill + navy border) -->
+    <polygon points="-44,-58 44,-58 28,-22 -28,-22"
+      fill="white" stroke="#1B2E4B" stroke-width="5" stroke-linejoin="round"/>
     <!-- handle -->
-    <rect x="-5" y="-4" width="10" height="82" rx="3" fill="#1B2E4B"/>
-    <!-- head ring -->
-    <circle cx="0" cy="-22" r="20" fill="none" stroke="#1B2E4B" stroke-width="10"/>
-    <!-- cap/top to close ring visually -->
-    <rect x="-20" y="-44" width="40" height="12" rx="3" fill="#1B2E4B"/>
+    <rect x="-10" y="-22" width="20" height="82" rx="7" fill="#1B2E4B"/>
+    <!-- handle grip detail -->
+    <rect x="-6" y="5" width="12" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
+    <rect x="-6" y="15" width="12" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
+    <rect x="-6" y="25" width="12" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
   </g>
 
-  <!-- ── BRAND NAME ── -->
-  <!-- Bracket left top -->
-  <path d="M 72 360 L 58 360 L 58 378" fill="none" stroke="#1B2E4B" stroke-width="4" stroke-linecap="round"/>
-  <!-- Bracket right top -->
-  <path d="M 428 360 L 442 360 L 442 378" fill="none" stroke="#1B2E4B" stroke-width="4" stroke-linecap="round"/>
-  <!-- Bracket left bottom -->
-  <path d="M 58 455 L 58 472 L 72 472" fill="none" stroke="#1B2E4B" stroke-width="4" stroke-linecap="round"/>
-  <!-- Bracket right bottom -->
-  <path d="M 442 455 L 442 472 L 428 472" fill="none" stroke="#1B2E4B" stroke-width="4" stroke-linecap="round"/>
+  <!-- ── TOP BRACKETS ── -->
+  <path d="M 76 354 L 60 354 L 60 372" fill="none" stroke="#1B2E4B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 424 354 L 440 354 L 440 372" fill="none" stroke="#1B2E4B" stroke-width="4" stroke-linecap="round"/>
 
-  <!-- DRYWALL -->
-  <text x="250" y="413"
-    font-family="'Arial Black', Impact, 'Arial Narrow Bold', sans-serif"
-    font-size="72" font-weight="900" fill="#1B2E4B"
-    text-anchor="middle" letter-spacing="3">DRYWALL</text>
+  <!-- ── DRYWALL (navy) ── -->
+  <text x="250" y="408"
+    font-family="'Arial Black', Impact, 'Franklin Gothic Heavy', sans-serif"
+    font-size="78" font-weight="900" fill="#1B2E4B"
+    text-anchor="middle" letter-spacing="1">DRYWALL</text>
 
-  <!-- PAINTER PRO -->
-  <text x="250" y="468"
-    font-family="'Arial Black', Impact, 'Arial Narrow Bold', sans-serif"
-    font-size="52" font-weight="900" fill="#E8631F"
-    text-anchor="middle" letter-spacing="2">PAINTER PRO</text>
+  <!-- ── & (orange, with side dashes) ── -->
+  <line x1="80"  y1="422" x2="208" y2="422" stroke="#E8631F" stroke-width="2"/>
+  <text x="250" y="427"
+    font-family="'Arial Black', sans-serif"
+    font-size="17" font-weight="800" fill="#E8631F"
+    text-anchor="middle" letter-spacing="2">&amp;</text>
+  <line x1="292" y1="422" x2="420" y2="422" stroke="#E8631F" stroke-width="2"/>
+
+  <!-- ── PAINTER'S PRO (orange) ── -->
+  <text x="250" y="473"
+    font-family="'Arial Black', Impact, 'Franklin Gothic Heavy', sans-serif"
+    font-size="56" font-weight="900" fill="#E8631F"
+    text-anchor="middle" letter-spacing="1">PAINTER&#x2019;S PRO</text>
+
+  <!-- ── BOTTOM BRACKETS ── -->
+  <path d="M 60 480 L 60 496 L 76 496" fill="none" stroke="#1B2E4B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 440 480 L 440 496 L 424 496" fill="none" stroke="#1B2E4B" stroke-width="4" stroke-linecap="round"/>
 
   <!-- ── SUBTITLE ── -->
-  <line x1="68" y1="483" x2="132" y2="483" stroke="#E8631F" stroke-width="2"/>
-  <text x="250" y="487"
-    font-family="Arial, sans-serif" font-size="11.5"
-    fill="#1B2E4B" font-weight="700" text-anchor="middle" letter-spacing="2.5">
+  <line x1="68"  y1="485" x2="118" y2="485" stroke="#E8631F" stroke-width="1.5"/>
+  <text x="250" y="489"
+    font-family="Arial, sans-serif" font-size="11" fill="#1B2E4B"
+    font-weight="700" text-anchor="middle" letter-spacing="2.2">
     HOME REPAIR &amp; HANDYMAN SERVICES
   </text>
-  <line x1="368" y1="483" x2="432" y2="483" stroke="#E8631F" stroke-width="2"/>
+  <line x1="382" y1="485" x2="432" y2="485" stroke="#E8631F" stroke-width="1.5"/>
 
-  <!-- ── BOTTOM DIVIDER ── -->
-  <line x1="80" y1="500" x2="420" y2="500" stroke="#1B2E4B" stroke-width="1" opacity="0.18"/>
+  <!-- ── ICON DIVIDER ── -->
+  <line x1="78" y1="502" x2="422" y2="502" stroke="#1B2E4B" stroke-width="1" opacity="0.14"/>
 
-  <!-- Icon: brush -->
-  <g transform="translate(105,513)">
-    <rect x="-5" y="-10" width="10" height="18" rx="2" fill="#E8631F" transform="rotate(-20)"/>
-    <rect x="-6" y="-14" width="12" height="7" rx="1" fill="#1B2E4B" transform="rotate(-20)"/>
+  <!-- Icon: brush (PAINTING) -->
+  <g transform="translate(78,516) rotate(-20)">
+    <rect x="-5" y="-13" width="10" height="22" rx="2" fill="#E8631F"/>
+    <rect x="-6" y="-17" width="12" height="7" rx="1" fill="#1B2E4B"/>
   </g>
-  <text x="105" y="535"
-    font-family="Arial, sans-serif" font-size="8.5" fill="#1B2E4B"
-    font-weight="700" text-anchor="middle" letter-spacing=".8">PAINTING</text>
+  <text x="78" y="536" font-family="Arial,sans-serif" font-size="8.5"
+    fill="#1B2E4B" font-weight="700" text-anchor="middle" letter-spacing=".6">PAINTING</text>
 
-  <!-- Icon: panel/wall -->
-  <g transform="translate(205,513)">
-    <rect x="-10" y="-11" width="20" height="20" rx="2" fill="none" stroke="#1B2E4B" stroke-width="2"/>
-    <line x1="-10" y1="-2" x2="10" y2="-2" stroke="#1B2E4B" stroke-width="1.5"/>
+  <!-- Icon: drywall panel (DRYWALL) -->
+  <g transform="translate(192,516)">
+    <rect x="-13" y="-14" width="26" height="23" rx="2"
+      fill="none" stroke="#1B2E4B" stroke-width="2"/>
+    <line x1="-13" y1="-5" x2="13" y2="-5" stroke="#1B2E4B" stroke-width="1.5"/>
+    <line x1="-13" y1="4" x2="13" y2="4" stroke="#1B2E4B" stroke-width="1.5"/>
+    <circle cx="-8" cy="-9.5" r="1.8" fill="#1B2E4B"/>
+    <circle cx="8"  cy="-9.5" r="1.8" fill="#1B2E4B"/>
   </g>
-  <text x="205" y="535"
-    font-family="Arial, sans-serif" font-size="8.5" fill="#1B2E4B"
-    font-weight="700" text-anchor="middle" letter-spacing=".8">DRYWALL</text>
+  <text x="192" y="536" font-family="Arial,sans-serif" font-size="8.5"
+    fill="#1B2E4B" font-weight="700" text-anchor="middle" letter-spacing=".6">DRYWALL</text>
 
-  <!-- Icon: wrench small -->
-  <g transform="translate(295,513)">
-    <rect x="-3" y="-2" width="6" height="14" rx="2" fill="#1B2E4B"/>
-    <circle cx="0" cy="-8" r="7" fill="none" stroke="#1B2E4B" stroke-width="3"/>
+  <!-- Icon: screwdriver (REPAIRS) -->
+  <g transform="translate(308,516) rotate(-40)">
+    <rect x="-3" y="-16" width="6" height="30" rx="2" fill="#E8631F"/>
+    <rect x="-5" y="-20" width="10" height="7" rx="1" fill="#1B2E4B"/>
+    <polygon points="-3,14 3,14 0,20" fill="#1B2E4B"/>
   </g>
-  <text x="295" y="535"
-    font-family="Arial, sans-serif" font-size="8.5" fill="#1B2E4B"
-    font-weight="700" text-anchor="middle" letter-spacing=".8">REPAIRS</text>
+  <text x="308" y="536" font-family="Arial,sans-serif" font-size="8.5"
+    fill="#1B2E4B" font-weight="700" text-anchor="middle" letter-spacing=".6">REPAIRS</text>
 
-  <!-- Icon: drop/install -->
-  <g transform="translate(395,513)">
-    <path d="M 0 -12 Q 8 -3 8 4 Q 8 12 0 12 Q -8 12 -8 4 Q -8 -3 0 -12 Z" fill="#1B2E4B"/>
+  <!-- Icon: house (INSTALLS) -->
+  <g transform="translate(422,514)">
+    <polygon points="0,-16 15,-5 15,11 -15,11 -15,-5"
+      fill="none" stroke="#1B2E4B" stroke-width="2"/>
+    <polygon points="0,-21 17,-6 -17,-6"
+      fill="none" stroke="#1B2E4B" stroke-width="2"/>
+    <rect x="-5" y="0" width="10" height="11" rx="1"
+      fill="none" stroke="#1B2E4B" stroke-width="1.5"/>
+    <rect x="4" y="-4" width="7" height="7" rx="1"
+      fill="none" stroke="#1B2E4B" stroke-width="1.2"/>
+    <line x1="7.5" y1="-4" x2="7.5" y2="3" stroke="#1B2E4B" stroke-width="1"/>
+    <line x1="4"   y1="-.5" x2="11" y2="-.5" stroke="#1B2E4B" stroke-width="1"/>
   </g>
-  <text x="395" y="535"
-    font-family="Arial, sans-serif" font-size="8.5" fill="#1B2E4B"
-    font-weight="700" text-anchor="middle" letter-spacing=".8">INSTALLS</text>
+  <text x="422" y="536" font-family="Arial,sans-serif" font-size="8.5"
+    fill="#1B2E4B" font-weight="700" text-anchor="middle" letter-spacing=".6">INSTALLS</text>
 
   <!-- Vertical separators between icons -->
-  <line x1="155" y1="503" x2="155" y2="530" stroke="#1B2E4B" stroke-width="1" opacity="0.2"/>
-  <line x1="250" y1="503" x2="250" y2="530" stroke="#1B2E4B" stroke-width="1" opacity="0.2"/>
-  <line x1="345" y1="503" x2="345" y2="530" stroke="#1B2E4B" stroke-width="1" opacity="0.2"/>
+  <line x1="135" y1="504" x2="135" y2="530" stroke="#1B2E4B" stroke-width="1" opacity="0.18"/>
+  <line x1="250" y1="504" x2="250" y2="530" stroke="#1B2E4B" stroke-width="1" opacity="0.18"/>
+  <line x1="365" y1="504" x2="365" y2="530" stroke="#1B2E4B" stroke-width="1" opacity="0.18"/>
 
   <!-- ── TAGLINE ── -->
-  <text x="250" y="554"
-    font-family="Georgia, 'Times New Roman', serif"
-    font-size="15.5" fill="#E8631F" font-style="italic"
-    text-anchor="middle">We fix it. You enjoy it.</text>
+  <line x1="66"  y1="550" x2="148" y2="550" stroke="#E8631F" stroke-width="1.5"/>
+  <text x="250" y="555" font-family="Georgia,'Times New Roman',serif"
+    font-size="14.5" text-anchor="middle" font-style="italic">
+    <tspan fill="#1B2E4B">We fix it. </tspan><tspan fill="#E8631F">You enjoy it.</tspan>
+  </text>
+  <line x1="352" y1="550" x2="434" y2="550" stroke="#E8631F" stroke-width="1.5"/>
 
 </svg>
