@@ -1,0 +1,15 @@
+{
+  "name": "Drywall Painter Pro",
+  "short_name": "DPP",
+  "description": "Painting, drywall, and handyman services in Chicago and western suburbs.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#151310",
+  "theme_color": "#E8631F",
+  "lang": "en-US",
+  "icons": [
+    { "src": "favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "logo.jpg", "sizes": "512x512", "type": "image/jpeg" }
+  ]
+}
